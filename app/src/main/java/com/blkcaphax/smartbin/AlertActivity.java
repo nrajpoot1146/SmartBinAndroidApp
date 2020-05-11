@@ -55,7 +55,7 @@ public class AlertActivity extends AppCompatActivity {
                                     textView.setText("Alert! the bin with BinID:"+ binId +" has reached it's maximum limit, needs to be serviced soon.");
                                     textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
                                     AlertActivity.this.linearLayout.addView(textView);
-                                    Toast.makeText(AlertActivity.this, "fdfdf",Toast.LENGTH_SHORT).show();
+
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
