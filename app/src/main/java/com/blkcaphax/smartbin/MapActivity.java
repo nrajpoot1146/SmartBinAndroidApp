@@ -30,12 +30,14 @@ import java.io.IOException;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
+    private WaitDialog waitDialog;
     private static final int REQUEST_CODE = 101;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
+        waitDialog = new WaitDialog(this);
+        waitDialog.showLoadindDialog();
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         supportMapFragment.getMapAsync(MapActivity.this);
@@ -98,7 +100,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                         }
                         //gmap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()), 18.0f));
                         gmap.animateCamera(CameraUpdateFactory.newLatLngZoom(customMarker.getLocation(), 15.0f));
-
+                        MapActivity.this.waitDialog.hideLoadingDialog();
                     }
                 });
             }

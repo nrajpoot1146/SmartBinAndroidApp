@@ -33,5 +33,13 @@
             app:layout_row="0"
             app:srcCompat="@mipmap/grid_alert_ic" />
 
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="137dp"
+            android:layout_height="122dp"
+            android:text="Logout"
+            app:layout_column="2"
+            app:layout_row="0" />
+
     </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
